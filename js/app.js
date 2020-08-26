@@ -10,8 +10,8 @@ let mIndexTemp = -1;
 let dayIndex = 0;
 let isBurgerPressed;
 let calMenuSwitch = true;
-let date = new Date();
-let mt = new moment(date);
+let today = new Date();
+let mt = new moment(today);
 let mtCal = moment.apply();
 let events;
 //Selectors
@@ -218,9 +218,9 @@ function headerDayLeftRight() {
 }
 
 function headerToday() {
-    mt.date(date.getUTCDate());
-    mt.year(date.getUTCFullYear());
-    mt.month(date.getUTCMonth());
+    mt.date(today.getUTCDate());
+    mt.year(today.getUTCFullYear());
+    mt.month(today.getUTCMonth());
     let mIndex = parseInt(mt.format("M"));
     openCalenderTabs(mIndex - 1);
     setCalendar(mIndex - 1);
@@ -353,7 +353,7 @@ function Calendar(elem, index, callback) {
         if (num === 1) {
             element.addClass("offset-" + first.day());
         }
-        if (num === date.getUTCDate() && index === date.getUTCMonth()) {
+        if (num === today.getUTCDate() && index === today.getUTCMonth()) {
             element.addClass("today");
         }
         elem.append(element);
@@ -455,32 +455,39 @@ function Events(elem) {
             .removeClass("now")
             .removeClass("future");
 
-        const dt1 = new Date(1970, 0, 1);
-
-        let hourNow = date.getHours();
+        const dt = new Date(1970, 0, 1);
+        let hourNow = today.getHours();
 
         let i = 0;
-        while (dt1.getDate() === 1) {
-            let hourIndex = dt1.getHours();
-            dt1.setHours(dt1.getHours() + 1);
+        while (dt.getDate() === 1) {
+            let hourIndex = dt.getHours();
+            dt.setHours(dt.getHours() + 1);
             const element = $(eventIndicator[i++]);
 
-            if (
-                hourIndex === hourNow &&
-                mt.month() === date.getUTCMonth() &&
-                mt.year() === date.getUTCFullYear() &&
-                mt.date() === date.getUTCDate()
-            ) {
-                element.addClass("now");
-            } else if (
-                (hourIndex < hourNow && mt.date() === date.getUTCDate()) ||
-                mt.date() < date.getUTCDate() ||
-                mt.month() < date.getUTCMonth() ||
-                mt.year() < date.getUTCFullYear()
-            ) {
-                element.addClass("expired");
-            } else {
+            let mainCalWrap = new Date(mt.year(), mt.month(), mt.date());
+            let todayCalWrap = new Date(
+                today.getUTCFullYear(),
+                today.getUTCMonth(),
+                today.getUTCDate()
+            );
+
+            //Today
+            if (mainCalWrap.getTime() === todayCalWrap.getTime()) {
+                if (hourIndex === hourNow) {
+                    element.addClass("now");
+                } else if (hourIndex < hourNow) {
+                    element.addClass("expired");
+                } else if (hourIndex > hourNow) {
+                    element.addClass("future");
+                }
+            }
+            //Future
+            if (mainCalWrap.getTime() > todayCalWrap.getTime()) {
                 element.addClass("future");
+            }
+            //Expired
+            if (mainCalWrap.getTime() < todayCalWrap.getTime()) {
+                element.addClass("expired");
             }
         }
     };
