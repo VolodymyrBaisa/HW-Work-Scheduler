@@ -1,0 +1,61 @@
+.calendar {
+    li {
+        list-style-type: none;
+        float: left;
+        padding: 1%;
+        font-size: $secondary-text-size;
+        color: $secondary-text-color;
+        width: 13%;
+        margin: 0 1% 1% 0;
+
+        span {
+            display: block;
+            text-align: center;
+            padding: 0.1rem;
+            border-radius: 5%;
+            &:hover {
+                background-color: rgb(138, 138, 138);
+            }
+        }
+
+        div {
+            pointer-events: none;
+        }
+    }
+
+    .calDays {
+        pointer-events: none;
+    }
+
+    li.selected span {
+        background-color: #000;
+        color: white;
+    }
+
+    li.today span {
+        background-color: #33f;
+        color: white;
+    }
+
+    li.offset-0 {
+        margin-left: 0%;
+    }
+    li.offset-1 {
+        margin-left: 14%;
+    }
+    li.offset-2 {
+        margin-left: 28%;
+    }
+    li.offset-3 {
+        margin-left: 42%;
+    }
+    li.offset-4 {
+        margin-left: 56%;
+    }
+    i.offset-5 {
+        margin-left: 70%;
+    }
+    li.offset-6 {
+        margin-left: 84%;
+    }
+}

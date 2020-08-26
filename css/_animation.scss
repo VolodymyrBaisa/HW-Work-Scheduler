@@ -1,0 +1,69 @@
+.up {
+    &:hover {
+        animation: upMove 1.5s infinite;
+    }
+}
+
+.down {
+    &:hover {
+        animation: downMove 1.5s infinite;
+    }
+}
+.left {
+    &:hover {
+        animation: leftMove 1.5s infinite;
+    }
+}
+.right {
+    &:hover {
+        animation: rightMove 1.5s infinite;
+    }
+}
+
+@keyframes upMove {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+@keyframes downMove {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(5px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+@keyframes leftMove {
+    0% {
+        transform: translateX(0px);
+    }
+    50% {
+        transform: translateX(-5px);
+    }
+    100% {
+        transform: translateX(0px);
+    }
+}
+
+@keyframes rightMove {
+    0% {
+        transform: translateX(0px);
+    }
+    50% {
+        transform: translateX(5px);
+    }
+    100% {
+        transform: translateX(0px);
+    }
+}

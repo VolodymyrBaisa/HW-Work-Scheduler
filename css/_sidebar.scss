@@ -1,0 +1,208 @@
+.sidebar {
+    flex: 0 0 32rem;
+    background-color: $primary;
+    z-index: 1;
+    transition: flex 1s;
+
+    // Menu
+    .menu {
+        flex-direction: row;
+        // justify-content: space-between;
+        margin: 2px;
+        z-index: 100;
+        // Burger Button Menu
+        .burger {
+            cursor: pointer;
+            margin: 0 1.5rem 0 0;
+
+            span {
+                background: $secondary-text-color;
+                padding: 0.1rem 1.5rem;
+                margin: 0.5rem 0rem;
+                display: block;
+                transition: transform 1s ease;
+            }
+        }
+        //Burger Button Activation State
+        .toggle.line1 {
+            transform: rotateZ(-45deg) translateY(250%) translateX(-5px);
+        }
+        .toggle.line2 {
+            opacity: 0;
+        }
+        .toggle.line3 {
+            transform: rotateZ(45deg) translateY(-250%) translateX(-5px);
+        }
+
+        .date {
+            width: 100%;
+            color: $secondary-text-color;
+            letter-spacing: 0.2rem;
+            white-space: nowrap;
+            transition: opacity 0.5s ease-out, letter-spacing 0.5s ease-out;
+        }
+
+        .down {
+            margin: 0 0 0 3%;
+        }
+
+        .up,
+        .down {
+            cursor: pointer;
+        }
+    }
+
+    // Calendar
+    .calendar.scroll-menu {
+        overflow: auto;
+        white-space: nowrap;
+        height: calc(94.7vh - 1rem);
+    }
+
+    .calendar {
+        position: relative;
+    }
+
+    .cal {
+        min-height: 230px;
+        width: 100%;
+        cursor: pointer;
+    }
+
+    .cal.cal-january {
+        z-index: 0;
+    }
+
+    .cal.cal-january,
+    .cal.cal-february,
+    .cal.cal-march,
+    .cal.cal-april,
+    .cal.cal-may,
+    .cal.cal-june,
+    .cal.cal-july,
+    .cal.cal-august,
+    .cal.cal-september,
+    .cal.cal-october,
+    .cal.cal-november,
+    .cal.cal-december {
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+            url(/img/min/january.png) no-repeat center;
+        background-size: cover;
+        transition: top 0.5s ease;
+        header {
+            font-size: $primary-text-size;
+            color: $secondary-text-color;
+            font-weight: 500;
+            letter-spacing: 0.2rem;
+            padding: 10px;
+            pointer-events: none;
+        }
+    }
+
+    .cal.cal-january {
+        position: absolute;
+        top: 0;
+    }
+    .cal.cal-february {
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+            url(/img/min/february.png) no-repeat center;
+        background-size: cover;
+        position: absolute;
+        z-index: 1;
+        top: 50px;
+    }
+    .cal.cal-march {
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+            url(/img/min/march.png) no-repeat center;
+        background-size: cover;
+        position: absolute;
+        z-index: 2;
+        top: 100px;
+    }
+    .cal.cal-april {
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+            url(/img/min/april.png) no-repeat center;
+        background-size: cover;
+        position: absolute;
+        z-index: 3;
+        top: 150px;
+    }
+    .cal.cal-may {
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+            url(/img/min/may.png) no-repeat center;
+        background-size: cover;
+        position: absolute;
+        z-index: 4;
+        top: 200px;
+    }
+    .cal.cal-june {
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+            url(/img/min/june.png) no-repeat center;
+        background-size: cover;
+        position: absolute;
+        z-index: 5;
+        top: 250px;
+    }
+    .cal.cal-july {
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+            url(/img/min/july.png) no-repeat center;
+        background-size: cover;
+        position: absolute;
+        z-index: 6;
+        top: 300px;
+    }
+    .cal.cal-august {
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+            url(/img/min/august.png) no-repeat center;
+        background-size: cover;
+        position: absolute;
+        z-index: 7;
+        top: 350px;
+    }
+    .cal.cal-september {
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+            url(/img/min/september.png) no-repeat center;
+        background-size: cover;
+        position: absolute;
+        z-index: 8;
+        top: 400px;
+    }
+    .cal.cal-october {
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+            url(/img/min/october.png) no-repeat center;
+        background-size: cover;
+        position: absolute;
+        z-index: 9;
+        top: 450px;
+    }
+    .cal.cal-november {
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+            url(/img/min/november.png) no-repeat center;
+        background-size: cover;
+        position: absolute;
+        z-index: 10;
+        top: 500px;
+    }
+    .cal.cal-december {
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+            url(/img/min/december.png) no-repeat center;
+        background-size: cover;
+        position: absolute;
+        z-index: 11;
+        top: 550px;
+    }
+}
+
+.sidebar.toggle {
+    flex: 0 0 20rem;
+
+    .date {
+        opacity: 0;
+        letter-spacing: -1.2rem;
+    }
+
+    .up,
+    .down {
+        margin: 0 15px 0 15px;
+    }
+}

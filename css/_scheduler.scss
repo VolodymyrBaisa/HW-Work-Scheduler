@@ -1,0 +1,184 @@
+.scheduler {
+    flex: 1 1 70rem;
+    z-index: 0;
+
+    //Menu
+    .menu {
+        box-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
+        flex-direction: row;
+        align-content: center;
+        padding-left: 5rem;
+
+        .left,
+        .right {
+            cursor: pointer;
+            margin-right: 40px;
+        }
+
+        .date {
+            color: $primary;
+            margin-right: 40px;
+            letter-spacing: 0.2rem;
+        }
+
+        #today {
+            cursor: pointer;
+        }
+
+        .today {
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            .today-text {
+                font-size: $primary-text-size;
+                margin: 0 5px;
+                color: $third-text-color;
+                pointer-events: none;
+            }
+        }
+    }
+
+    //Event's
+    .events {
+        height: calc(95.3vh - 1rem);
+        position: relative;
+
+        .background {
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            position: absolute;
+            left: 0;
+            opacity: 0.4;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+            transition: background-image 1s ease;
+        }
+
+        .card {
+            margin: 5vh;
+            width: 70vw;
+            z-index: 1;
+            position: relative;
+            transition: width 1s;
+            .card-header {
+                width: 70vw;
+                transition: width 1s;
+                //Day
+                span {
+                    font-size: $primary-text-size;
+                    color: $third-text-color;
+                    margin-left: 10px;
+                    letter-spacing: 0.1rem;
+                }
+
+                .line {
+                    background: $primary-text-color;
+                    padding: 0.2rem 1.5rem;
+                    margin: 0rem 0rem;
+                    display: block;
+                }
+            }
+
+            .card-body {
+                background-color: #c4c4c4;
+
+                .scroll-menu {
+                    overflow: auto;
+                    white-space: nowrap;
+                    height: 65vh;
+                    width: 70vw;
+                    transition: width 1s;
+                }
+
+                .day-container {
+                    background-color: #fff;
+
+                    .day {
+                        font-size: $primary-text-size;
+                        color: $primary-text-color;
+                        padding: 5px 10px 30px 10px;
+                    }
+                }
+
+                .event-container {
+                    position: relative;
+                    flex-direction: row;
+                    align-items: center;
+                    margin: 5px 0;
+
+                    .event-indicator {
+                        position: absolute;
+                        width: 10px;
+                        height: 50px;
+                        left: 0px;
+                    }
+
+                    .expired {
+                        background: #c4c4c4;
+                    }
+
+                    .now {
+                        background: #106ebe;
+                    }
+
+                    .future {
+                        background: #13be10;
+                    }
+
+                    .time {
+                        position: absolute;
+                        left: -10px;
+                        height: 10px;
+                        width: 50px;
+                        text-align: center;
+                        background: #fff;
+                        transform: rotate(-90deg);
+                        font-size: $secondary-text-size;
+                        color: $primary-text-color;
+                    }
+
+                    .event {
+                        display: flex;
+                        height: 50px;
+                        width: 100vw;
+                        background: #fff;
+                        padding: 10px 30px;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        cursor: pointer;
+                        justify-content: center;
+                        align-items: center;
+
+                        input[type="text"] {
+                            width: 90%;
+                            color: $primary-text-color;
+                            font-size: $third-font-size;
+                            border: 0;
+                            outline: none;
+                            background: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.scheduler.toggle {
+    .events {
+        .card {
+            width: 79vw;
+            .card-header {
+                width: 79vw;
+            }
+
+            .card-body {
+                .scroll-menu {
+                    width: 79vw;
+                }
+            }
+        }
+    }
+}
