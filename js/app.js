@@ -235,40 +235,40 @@ function switchCalendarBackground(index) {
     let img = "";
     switch (index) {
         case 0:
-            img = "/img/max/january.png";
+            img = "../img/max/january.png";
             break;
         case 1:
-            img = "/img/max/february.png";
+            img = "../img/max/february.png";
             break;
         case 2:
-            img = "/img/max/march.png";
+            img = "../img/max/march.png";
             break;
         case 3:
-            img = "/img/max/april.png";
+            img = "../img/max/april.png";
             break;
         case 4:
-            img = "/img/max/may.png";
+            img = "../img/max/may.png";
             break;
         case 5:
-            img = "/img/max/june.png";
+            img = "../img/max/june.png";
             break;
         case 6:
-            img = "/img/max/july.png";
+            img = "../img/max/july.png";
             break;
         case 7:
-            img = "/img/max/august.png";
+            img = "../img/max/august.png";
             break;
         case 8:
-            img = "/img/max/september.png";
+            img = "../img/max/september.png";
             break;
         case 9:
-            img = "/img/max/october.png";
+            img = "../img/max/october.png";
             break;
         case 10:
-            img = "/img/max/november.png";
+            img = "../img/max/november.png";
             break;
         case 11:
-            img = "/img/max/december.png";
+            img = "../img/max/december.png";
             break;
     }
     eventsBackgroundEl.css("background-image", " url(" + img + ")");
